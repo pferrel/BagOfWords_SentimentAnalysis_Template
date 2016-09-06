@@ -8,7 +8,6 @@ import org.apache.predictionio.controller.{Engine, EngineFactory, IEngineFactory
 
 object SA_EngineFactory extends EngineFactory{
 
-  println("engine called ---")
   def apply() = {
     new Engine(
       classOf[DataSource],
