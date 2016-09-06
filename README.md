@@ -50,7 +50,7 @@ client.create_event(
 ```
 
 ## Install and Run PredictionIO
-Install PredictinIO from [Apache PredictionIO](http://predictionio.incubator.apache.org/install/)
+Install PredictinIO from [Apache PredictionIO](http://predictionio.incubator.apache.org/install/).
 Let's say you have installed PredictionIO at /home/yourname/PredictionIO/. For convenience, add PredictionIO's binary command path to your PATH, i.e. /home/yourname/PredictionIO/bin
 ```
 $ PATH=$PATH:/home/yourname/PredictionIO/bin; export PATH
@@ -76,7 +76,6 @@ git clone https://github.com/peoplehum/BagOfWords_SentimentAnalysis_Template
 Let's assume you want to use this engine in an application named "testApp". You will need to collect some training data for machine learning modeling. You can generate an App ID and Access Key that represent "testApp" on the Event Server easily:
 ```
 $ pio app new testApp
-
 ```
 You should find the following in the console output:
 ```
@@ -167,7 +166,16 @@ You can specify port where to deploy
 ```
 $ pio deploy --port 8088
 ```
+### Execute Query
+Run below request for processing query on serving layer, it will return sentiment and its probabilistic score. 
+```
+curl -k -H "Content-Type: application/json" -d '{"phrase": "Freinds TV series is not good"}' https://localhost:8000/queries.json
+```
+# Future Work
+As it follows bag of words model, it does not preserve order of words or sentiment of words. It is upon frequecy of words and ngrams model, that can be further improved for better accuracy for ex. by adding part of speech tagging, or any other feature extraction techniques. 
 
 
+# Relative Issues
+For any problem, you can create issue here and for merging new changes make pull request. For any further query you can communicate on bansari.jan93@gmail.com
 
 
