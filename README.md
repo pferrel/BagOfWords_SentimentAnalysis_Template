@@ -178,4 +178,7 @@ As it follows bag of words model, it does not preserve order of words or sentime
 # Relative Issues
 For any problem, you can create issue here and for merging new changes make pull request. For any further query you can communicate on bansari.jan93@gmail.com
 
+## License
 
+This algorithm is under [Apache 2
+license](http://www.apache.org/licenses/LICENSE-2.0.html).
