@@ -10,7 +10,7 @@ def import_events(client, file):
   count = 0
   print("Importing data...")
   for line in f:
-    data = line.rstrip('\r\n').strip().rsplit(' ',1)
+    data = line.rstrip('\r\n').strip().rsplit(',')
     print(data,len(data))
     client.create_event(
       event="train",
