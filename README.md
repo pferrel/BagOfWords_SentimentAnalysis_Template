@@ -2,8 +2,10 @@
 
 # OverView
 
-In this ML Engine we have implemented Bag Of words model using Spark - MlLib. Bag Of Words model reffer to http://www.cs.cornell.edu/home/llee/papers/sentiment.pdf
-Feature Engineering part of this model include unigram + bigram and Negation along with other data preprocessing stuff. Model is trained with Naive Bayes calssifier.
+In this ML Engine we have implemented Bag Of words model using Spark - MlLib - 1.5.1. Bag Of Words model reffer to [Thumbs up? Sentiment Classification using Machine Learning
+Techniques] (http://www.cs.cornell.edu/home/llee/papers/sentiment.pdf )
+
+In this engine, Data preprocessing part include tokenization, negation, term frequency and both unigram + bigram as features, which is trained in Algorithm part of DASE model with NaiveBayes classifier. Training model can be customized with other calssifiers.
 
 ## Usage
 
@@ -18,13 +20,13 @@ By default, the template requires the following events to be collected (/data/im
 ```
 
 ### Output Predicted Result
-- the predicted label
+- it returns sentiment of phrase with 1.0 - positive or 0.0 - negative with relative probabilistic score.
 ```
 {"Sentiment":1.0,"Score":0.92}
 ```
 
 ### Dataset
-We will be using a twitter sentiment analysis data set from http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/
+We will be using a twitter sentiment analysis data set from [Twitter Sentiment Analysis Trainig Corpus] (http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/)
 
 Trainig data sample :
 
@@ -48,7 +50,7 @@ client.create_event(
 ```
 
 ## Install and Run PredictionIO
-Install PredictinIO from http://predictionio.incubator.apache.org/install/
+Install PredictinIO from [Apache PredictionIO](http://predictionio.incubator.apache.org/install/)
 Let's say you have installed PredictionIO at /home/yourname/PredictionIO/. For convenience, add PredictionIO's binary command path to your PATH, i.e. /home/yourname/PredictionIO/bin
 ```
 $ PATH=$PATH:/home/yourname/PredictionIO/bin; export PATH
@@ -107,6 +109,7 @@ A Python import script import_eventserver.py is provided in the template to impo
 Replace the value of access_key parameter by your Access Key and run:
 
 ```python
+$ pip install predictionio
 $ cd BagOfWords_SentimentAnalysis_Template
 $ python data/import_eventserver.py --access_key 3mZWDzci2D5YsqAnqNnXH9SB6Rg3dsTBs8iHkK6X2i54IQsIZI1eEeQQyMfs7b3F --file data/train.csv
 ```
@@ -164,6 +167,7 @@ You can specify port where to deploy
 ```
 $ pio deploy --port 8088
 ```
+
 
 
 
