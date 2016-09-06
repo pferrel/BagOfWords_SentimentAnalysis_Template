@@ -16,7 +16,7 @@ def import_events(client, file):
       event="train",
       entity_type="phrase",
       entity_id=count,
-      properties= { "phrase" : data[0], "sentiment": float(data[len(data) - 1]) }
+      properties= { "phrase" : data[3], "sentiment": float(data[1]) }
     )
     count += 1
   f.close()
@@ -27,7 +27,7 @@ if __name__ == '__main__':
     description="Import rotten tomatoes data for sentiment analysis")
   parser.add_argument('--access_key', default='invald_access_key')
   parser.add_argument('--url', default="http://localhost:7070")
-  parser.add_argument('--file', default="./data/train.txt")
+  parser.add_argument('--file', default="")
 
   args = parser.parse_args()
   print(args)
