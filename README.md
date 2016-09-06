@@ -2,7 +2,7 @@
 
 # OverView
 
-In this ML Engine we have implemented Bag Of words model using Spark - MlLib - 1.5.1. Bag Of Words model reffer to [Thumbs up? Sentiment Classification using Machine Learning
+In this ML Engine we have implemented Bag Of words model using Spark - MlLib - 1.5.1, predictionIO 0.9.7-SNAPSHOT and scala 2.10.6. Bag Of Words model reffer to [Thumbs up? Sentiment Classification using Machine Learning
 Techniques] (http://www.cs.cornell.edu/home/llee/papers/sentiment.pdf )
 
 In this engine, Data preprocessing part include tokenization, negation, term frequency and both unigram + bigram as features, which is trained in Algorithm part of DASE model with NaiveBayes classifier. Training model can be customized with other calssifiers.
