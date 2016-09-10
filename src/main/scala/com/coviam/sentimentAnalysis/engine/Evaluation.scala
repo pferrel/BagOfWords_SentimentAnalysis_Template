@@ -19,7 +19,7 @@ object AccuracyEvaluation extends Evaluation{
 
 object EngineParamList extends EngineParamsGenerator{
   private[this] val baseEP = EngineParams(
-    dataSourceParams = DataSourceParam(appId = 28, evalK = 2))
+    dataSourceParams = DataSourceParam(appName = "testApp", evalK = 2))
 
   engineParamsList = Seq(
     baseEP.copy(algorithmParamsList = Seq(("Naivebayes", AlgorithmParams(1)))),

@@ -2,6 +2,7 @@ package com.coviam.sentimentAnalysis.engine
 
 import org.apache.predictionio.controller._
 import org.apache.predictionio.data.storage.{Event, Storage}
+import org.apache.predictionio.data.store.PEventStore
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 
@@ -10,18 +11,16 @@ import org.apache.spark.rdd.RDD
 class DataSource(val dsp: DataSourceParam) extends PDataSource[TrainingData, EmptyEvaluationInfo, Query, ActualResult]{
 
   def readEvent(sc:SparkContext) : RDD[Sentiment] = {
-    val eventDB = Storage.getPEvents()
-    val eventRDD: RDD[Event] = eventDB.find(
-      appId = dsp.appId,
+    val eventRDD: RDD[Event] = PEventStore.find(
+      appName = dsp.appName,
       entityType = Some("phrase"),
       eventNames = Some(List("train"))
-    )(sc)
+      )(sc)
     val sentimentRDD : RDD[Sentiment] = eventRDD.map{
       event  =>
         val phrase = event.properties.get[String]("phrase")
         val sentiment = event.properties.get[Double]("sentiment")
         Sentiment(phrase,sentiment)
-
     }
     sentimentRDD
   }
@@ -63,7 +62,7 @@ class TrainingData(val phraseAndSentiment:RDD[Sentiment]) extends Serializable w
 
 }
 case class Query(phrase:String) extends Serializable
-case class DataSourceParam(appId:Int, evalK:Int) extends Params
+case class DataSourceParam(appName:String, evalK:Int) extends Params
 
 case class Sentiment(phrase:String, sentiment:Double)
 

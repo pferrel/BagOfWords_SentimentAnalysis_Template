@@ -98,6 +98,18 @@ $ pio app list
 [INFO] [App$] Finished listing 2 app(s).
 ```
 
+To use template with above created application, modify appName in engine.json
+```
+"datasource": {
+    "params" : {
+      "appName" : "testApp",
+      "evalK" : 3
+    }
+  }
+```
+
+
+
 ## Collecting Data
 
 Next, let's collect some training data. By default, the Engine Template reads 2 properties of a user record: SentimentText(phrase) and sentiment.
@@ -105,7 +117,7 @@ Next, let's collect some training data. By default, the Engine Template reads 2 
 You can send these data to PredictionIO Event Server in real-time easily by making a HTTP request or through the EventClient of an SDK.
 
 A Python import script import_eventserver.py is provided in the template to import the data to Event Server using Python SDK.
-Replace the value of access_key parameter by your Access Key and run:
+Replace the value of access_key parameter by your applications's Access Key and run:
 
 ```python
 $ pip install predictionio
