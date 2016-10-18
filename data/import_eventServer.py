@@ -24,7 +24,7 @@ def import_events(client, file):
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(
-    description="Import rotten tomatoes data for sentiment analysis")
+    description="Import twitter data for sentiment analysis")
   parser.add_argument('--access_key', default='invald_access_key')
   parser.add_argument('--url', default="http://localhost:7070")
   parser.add_argument('--file', default="")
