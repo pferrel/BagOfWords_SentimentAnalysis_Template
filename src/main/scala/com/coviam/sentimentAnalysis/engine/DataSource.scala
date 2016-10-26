@@ -46,7 +46,7 @@ class TrainingData(val phraseAndSentiment:RDD[Sentiment]) extends Serializable w
   def sanityCheck(): Unit = {
     try {
       val obs = phraseAndSentiment.takeSample(false, 5)
-      println("total observation",obs.length)
+      println("sample observation",obs.length)
       (0 until 5).foreach(
         k => println("Observation " + (k + 1) + " label: " + obs(k))
       )
